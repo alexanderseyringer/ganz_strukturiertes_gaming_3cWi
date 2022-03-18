@@ -4,7 +4,7 @@ import org.newdawn.slick.Graphics;
 
 import java.util.Random;
 
-public class Rectangle {
+public class Rectangle implements Actor{
     private float x,y;
     private float speed;
     private int size;

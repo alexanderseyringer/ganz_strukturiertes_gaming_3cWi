@@ -8,24 +8,27 @@ import java.util.List;
 
 public class Objects extends BasicGame {
 
-    private List<Rectangle> rectangles;
-    private List<Circle> circles;
+    private List<Actor> actors;
     public Objects(String title) {
         super(title);
     }
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException { // First things
-        this.circles = new LinkedList<>();
+        this.actors = new LinkedList<>();
         for (int i = 0; i < 50; i++) {
             Circle circle = new Circle();
-            this.circles.add(circle);
+            this.actors.add(circle);
         }
 
-        this.rectangles = new LinkedList<>();
         for (int i = 0; i < 50; i++) {
             Rectangle rectangle = new Rectangle();
-            this.rectangles.add(rectangle);
+            this.actors.add(rectangle);
+        }
+
+        for (int i = 0; i < 50; i++) {
+            Elipse elipse = new Elipse();
+            this.actors.add(elipse);
         }
     }
 
@@ -97,14 +100,9 @@ public class Objects extends BasicGame {
             }
         } */
 
-        for (Circle circle: this.circles
+        for (Actor actor: this.actors
              ) {
-            circle.update(delta);
-        }
-
-        for (Rectangle rectangle: this.rectangles
-             ) {
-            rectangle.update(delta);
+            actor.update(delta);
         }
 
     }
@@ -116,14 +114,9 @@ public class Objects extends BasicGame {
         graphics.drawOval(this.xOval, 50,100,100);
         graphics.drawOval(100, this.yOval,100,100); */
 
-        for (Circle circle: this.circles
+        for (Actor actor: this.actors
         ) {
-            circle.render(graphics);
-        }
-
-        for (Rectangle rectangle: this.rectangles
-        ) {
-            rectangle.render(graphics);
+            actor.render(graphics);
         }
     }
 
