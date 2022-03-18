@@ -16,17 +16,17 @@ public class Objects extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException { // First things
         this.actors = new LinkedList<>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             Circle circle = new Circle();
             this.actors.add(circle);
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             Rectangle rectangle = new Rectangle();
             this.actors.add(rectangle);
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             Elipse elipse = new Elipse();
             this.actors.add(elipse);
         }
