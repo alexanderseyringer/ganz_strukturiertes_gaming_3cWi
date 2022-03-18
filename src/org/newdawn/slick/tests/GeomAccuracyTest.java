@@ -71,7 +71,7 @@ public class GeomAccuracyTest extends BasicGame {
 		switch(curTest) {
 		
 		case 0:
-				text = "Rectangles";
+				text = "Objects";
 				rectTest(g);
 				break;
 				

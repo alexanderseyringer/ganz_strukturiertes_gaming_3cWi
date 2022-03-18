@@ -1,33 +1,37 @@
-package at.seya.games.firstgame;
+package at.seya.games.objects;
 
 import org.newdawn.slick.*;
 
+import java.util.LinkedList;
+import java.util.List;
 
-public class Rectangles extends BasicGame {
 
-    private float xRectangle;
-    private float yRectangle;
-    private int rectangleDirection = 1;
-    public int xOvalDirection = 1;
-    public int yOvalDirection = 1;
-    private float xOval;
-    private float yOval;
+public class Objects extends BasicGame {
 
-    public Rectangles(String title) {
+    private List<Rectangle> rectangles;
+    private List<Circle> circles;
+    public Objects(String title) {
         super(title);
     }
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException { // First things
-        this.xRectangle = 100;
-        this.yRectangle = 100;
-        this.xOval = 50;
-        this.yOval = 50;
+        this.circles = new LinkedList<>();
+        for (int i = 0; i < 50; i++) {
+            Circle circle = new Circle();
+            this.circles.add(circle);
+        }
+
+        this.rectangles = new LinkedList<>();
+        for (int i = 0; i < 50; i++) {
+            Rectangle rectangle = new Rectangle();
+            this.rectangles.add(rectangle);
+        }
     }
 
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException { // Bewegungen
-        if(this.rectangleDirection == 1) {
+    public void update(GameContainer gameContainer, int delta) throws SlickException { // Bewegungen
+        /*if(this.rectangleDirection == 1) {
             if(this.xRectangle > 600) {
                 this.rectangleDirection = 2;
             }
@@ -91,21 +95,41 @@ public class Rectangles extends BasicGame {
             else {
                 this.yOval--;
             }
+        } */
+
+        for (Circle circle: this.circles
+             ) {
+            circle.update(delta);
+        }
+
+        for (Rectangle rectangle: this.rectangles
+             ) {
+            rectangle.update(delta);
         }
 
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException { // Was dargestellt werden soll
-        graphics.drawRect(this.xRectangle,this.yRectangle,100,100);
+        /*graphics.drawRect(this.xRectangle,this.yRectangle,100,100);
         graphics.drawString("Hallo Welt!", 100,250);
         graphics.drawOval(this.xOval, 50,100,100);
-        graphics.drawOval(100, this.yOval,100,100);
+        graphics.drawOval(100, this.yOval,100,100); */
+
+        for (Circle circle: this.circles
+        ) {
+            circle.render(graphics);
+        }
+
+        for (Rectangle rectangle: this.rectangles
+        ) {
+            rectangle.render(graphics);
+        }
     }
 
     public static void main(String[] argv) {
         try {
-            AppGameContainer container = new AppGameContainer(new Rectangles("Squared Rectangles"));
+            AppGameContainer container = new AppGameContainer(new Objects("Squared Objects"));
             container.setDisplayMode(800,600,false);
             container.start();
         } catch (SlickException e) {
