@@ -16,7 +16,7 @@ public class Background implements Actor{
     }
 
     @Override
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
     }
 }

@@ -20,13 +20,16 @@ public class SuperRacingGame extends BasicGame{
 
         RacingCarUser husbild = new RacingCarUser();
         this.actors.add(husbild);
+
+        RacingCarComputer supaComputer = new RacingCarComputer();
+        this.actors.add(supaComputer);
     }
 
     @Override
-    public void update(GameContainer gameContainer, int delta) throws SlickException {
+    public void update( GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor: this.actors
         ) {
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
     }
 
