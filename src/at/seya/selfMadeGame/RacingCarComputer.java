@@ -16,13 +16,13 @@ public class RacingCarComputer implements Actor{
     private int pastTime;
     private Boolean isBeginner;
 
-    public RacingCarComputer(int timeSet, boolean isBeginner) throws SlickException {
+    public RacingCarComputer(boolean isBeginner) throws SlickException {
         Random random = new Random();
         this.computerRacingCar = new Image("testdata/img/Computer_Car.png");
         scaledCar = computerRacingCar.getScaledCopy(85,165);
         this.x = random.nextInt(800);
         this.y = -200;
-        this.timeSetBeginner = timeSet;
+        this.timeSetBeginner = 0;
         this.pastTime = 0;
         this.timeSetForFollower = random.nextInt(2000)+1000;
         this.isBeginner = isBeginner;
@@ -37,7 +37,7 @@ public class RacingCarComputer implements Actor{
     public void update(GameContainer gameContainer, int delta) {
         this.pastTime += delta;
 
-        if(isBeginner == true) {
+        if(isBeginner) {
             if (this.timeSetBeginner < this.pastTime) {
                 this.y += (float) delta / 1.5;
             }

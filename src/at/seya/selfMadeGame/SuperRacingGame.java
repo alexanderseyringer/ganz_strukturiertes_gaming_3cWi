@@ -21,13 +21,11 @@ public class SuperRacingGame extends BasicGame{
         RacingCarUser husbild = new RacingCarUser();
         this.actors.add(husbild);
 
-        RacingCarComputer supaComputerBeginner = new RacingCarComputer(0, true);
+        RacingCarComputer supaComputerBeginner = new RacingCarComputer(true);
         this.actors.add(supaComputerBeginner);
 
-        for (int i = 0; i < 5; i++) {
-            RacingCarComputer supaComputer = new RacingCarComputer(1000, false);
-            this.actors.add(supaComputer);
-        }
+        RacingCarComputer supaComputer = new RacingCarComputer(false);
+        this.actors.add(supaComputer);
 
     }
 
