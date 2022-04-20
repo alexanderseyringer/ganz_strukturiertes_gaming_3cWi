@@ -9,6 +9,7 @@ import java.util.List;
 
 public class SuperRacingGame extends BasicGame{
     private List<Actor> actors;
+    private RacingCarUser racingCarUser;
     public SuperRacingGame(String title) {
         super(title);
     }
@@ -20,8 +21,8 @@ public class SuperRacingGame extends BasicGame{
         Background background = new Background();
         this.actors.add(background);
 
-        RacingCarUser husbild = new RacingCarUser();
-        this.actors.add(husbild);
+        this.racingCarUser = new RacingCarUser();
+        this.actors.add(racingCarUser);
 
         RacingCarComputer supaComputer1 = new RacingCarComputer();
         RacingCarComputer supaComputer2 = new RacingCarComputer();
@@ -31,12 +32,15 @@ public class SuperRacingGame extends BasicGame{
         supaComputer2.setComputerRacingCar(supaComputer3);
         supaComputer3.setComputerRacingCar(supaComputer1);
 
+        racingCarUser.addCollissionCar(supaComputer1);
+        racingCarUser.addCollissionCar(supaComputer2);
+        racingCarUser.addCollissionCar(supaComputer3);
+
         this.actors.add(supaComputer1);
         this.actors.add(supaComputer2);
         this.actors.add(supaComputer3);
 
         supaComputer1.start();
-
     }
 
     @Override
@@ -44,6 +48,11 @@ public class SuperRacingGame extends BasicGame{
         for (Actor actor: this.actors
         ) {
             actor.update(gameContainer, delta);
+        }
+
+        if(this.racingCarUser.hasColission()) {
+            System.out.println("KOLISSION WAS TUST DU???");
+
         }
     }
 
@@ -64,6 +73,5 @@ public class SuperRacingGame extends BasicGame{
             e.printStackTrace();
         }
     }
-
 
 }

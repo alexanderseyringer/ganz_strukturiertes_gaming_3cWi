@@ -4,6 +4,9 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
+
 import java.util.Random;
 
 public class RacingCarComputer implements Actor{
@@ -13,17 +16,20 @@ public class RacingCarComputer implements Actor{
     private float x,y;
     private float speed = 1.5f;
     boolean isDriving = false;
+    private Shape collisionShape;
 
     public RacingCarComputer() throws SlickException {
         this.computerRacingCar = new Image("testdata/img/Computer_Car.png");
         scaledCar = computerRacingCar.getScaledCopy(85,165);
         setRandomXPosition();
         this.y = -200;
+        this.collisionShape = new Rectangle(this.x, this.y,85, 165);
     }
 
     @Override
     public void render(Graphics graphics) {
         scaledCar.draw(this.x,this.y);
+        graphics.draw(collisionShape);
     }
 
     @Override
@@ -44,6 +50,8 @@ public class RacingCarComputer implements Actor{
             setSpeedFaster();
         }
 
+        this.collisionShape.setX(this.x);
+        this.collisionShape.setY(this.y);
     }
 
     public void start() {
@@ -62,5 +70,9 @@ public class RacingCarComputer implements Actor{
 
     public void setComputerRacingCar(RacingCarComputer nextRacingCarComputer) {
         this.nextRacingCarComputer = nextRacingCarComputer;
+    }
+
+    public Shape getCollisionShape() {
+        return collisionShape;
     }
 }
