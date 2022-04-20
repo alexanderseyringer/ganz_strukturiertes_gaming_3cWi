@@ -9,69 +9,58 @@ import java.util.Random;
 public class RacingCarComputer implements Actor{
     private Image computerRacingCar;
     private Image scaledCar;
+    private RacingCarComputer nextRacingCarComputer;
     private float x,y;
-    private int speedyGonzales;
-    private int timeSetBeginner;
-    private int timeSetForFollower;
-    private int pastTime;
-    private Boolean isBeginner;
+    private float speed = 1.5f;
+    boolean isDriving = false;
 
-    public RacingCarComputer(boolean isBeginner) throws SlickException {
-        Random random = new Random();
+    public RacingCarComputer() throws SlickException {
         this.computerRacingCar = new Image("testdata/img/Computer_Car.png");
         scaledCar = computerRacingCar.getScaledCopy(85,165);
-        this.x = random.nextInt(800);
+        setRandomXPosition();
         this.y = -200;
-        this.timeSetBeginner = 0;
-        this.pastTime = 0;
-        this.timeSetForFollower = random.nextInt(2000)+1000;
-        this.isBeginner = isBeginner;
     }
 
     @Override
     public void render(Graphics graphics) {
-        scaledCar.draw(x,y);
+        scaledCar.draw(this.x,this.y);
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
-        this.pastTime += delta;
 
-        if(isBeginner) {
-            if (this.timeSetBeginner < this.pastTime) {
-                this.y += (float) delta / 1.5;
-            }
+        if (this.y > 400 && this.y < 500) {
+            this.nextRacingCarComputer.start();
         }
 
-        else {
-            if (this.timeSetForFollower < this.pastTime) {
-                this.y+= (float) delta/1.5;
-            }
+        if(isDriving) {
+            this.y += (float) delta/this.speed;
         }
 
-        if(this.x < 420) {
-            this.x = 420;
-        }
-
-        if(this.y > 725) {
-            theGreatReset();
+        if(this.y > 700) {
+            this.isDriving = false;
+            this.y = -200;
+            setRandomXPosition();
+            setSpeedFaster();
         }
 
     }
 
-    public void theGreatReset() {
-        this.pastTime = 0;
+    public void start() {
+        this.isDriving = true;
+    }
 
-        Random random = new Random();
-        this.x = random.nextInt(800);
+    private void setRandomXPosition() {
+        this.x = (new Random()).nextInt(370) + 420;
+    }
 
-        if(this.x < 420) {
-            this.x = 420;
+    public void setSpeedFaster() {
+        if (this.speed > 0.8) {
+            this.speed -= 0.05;
         }
+    }
 
-        this.y = -200;
-
-        this.timeSetBeginner = random.nextInt(2000)+1000;
-        this.timeSetForFollower = random.nextInt(2000)+1000;
+    public void setComputerRacingCar(RacingCarComputer nextRacingCarComputer) {
+        this.nextRacingCarComputer = nextRacingCarComputer;
     }
 }

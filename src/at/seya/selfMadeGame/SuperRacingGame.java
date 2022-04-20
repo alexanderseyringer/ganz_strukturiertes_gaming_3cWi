@@ -6,6 +6,7 @@ import org.newdawn.slick.*;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class SuperRacingGame extends BasicGame{
     private List<Actor> actors;
     public SuperRacingGame(String title) {
@@ -15,17 +16,26 @@ public class SuperRacingGame extends BasicGame{
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new LinkedList<>();
+
         Background background = new Background();
         this.actors.add(background);
 
         RacingCarUser husbild = new RacingCarUser();
         this.actors.add(husbild);
 
-        RacingCarComputer supaComputerBeginner = new RacingCarComputer(true);
-        this.actors.add(supaComputerBeginner);
+        RacingCarComputer supaComputer1 = new RacingCarComputer();
+        RacingCarComputer supaComputer2 = new RacingCarComputer();
+        RacingCarComputer supaComputer3 = new RacingCarComputer();
 
-        RacingCarComputer supaComputer = new RacingCarComputer(false);
-        this.actors.add(supaComputer);
+        supaComputer1.setComputerRacingCar(supaComputer2);
+        supaComputer2.setComputerRacingCar(supaComputer3);
+        supaComputer3.setComputerRacingCar(supaComputer1);
+
+        this.actors.add(supaComputer1);
+        this.actors.add(supaComputer2);
+        this.actors.add(supaComputer3);
+
+        supaComputer1.start();
 
     }
 
