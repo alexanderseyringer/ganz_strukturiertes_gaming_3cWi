@@ -17,6 +17,7 @@ public class RacingCarComputer implements Actor{
     private float speed = 1.5f;
     boolean isDriving = false;
     private Shape collisionShape;
+    boolean crashed = false;
 
     public RacingCarComputer() throws SlickException {
         this.computerRacingCar = new Image("testdata/img/Computer_Car.png");
@@ -34,24 +35,26 @@ public class RacingCarComputer implements Actor{
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+        if (this.crashed == false) {
+            if (this.y > 400 && this.y < 500) {
+                this.nextRacingCarComputer.start();
+            }
 
-        if (this.y > 400 && this.y < 500) {
-            this.nextRacingCarComputer.start();
+            if(isDriving) {
+                this.y += (float) delta/this.speed;
+            }
+
+            if(this.y > 700) {
+                this.isDriving = false;
+                this.y = -200;
+                setRandomXPosition();
+                setSpeedFaster();
+            }
+
+            this.collisionShape.setX(this.x);
+            this.collisionShape.setY(this.y);
         }
 
-        if(isDriving) {
-            this.y += (float) delta/this.speed;
-        }
-
-        if(this.y > 700) {
-            this.isDriving = false;
-            this.y = -200;
-            setRandomXPosition();
-            setSpeedFaster();
-        }
-
-        this.collisionShape.setX(this.x);
-        this.collisionShape.setY(this.y);
     }
 
     public void start() {
@@ -75,4 +78,10 @@ public class RacingCarComputer implements Actor{
     public Shape getCollisionShape() {
         return collisionShape;
     }
+
+    public void end() {
+        this.crashed = true;
+    }
+
+
 }

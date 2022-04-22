@@ -13,6 +13,7 @@ public class SuperRacingGame extends BasicGame{
     public SuperRacingGame(String title) {
         super(title);
     }
+    public RacingCarComputer racingCarComputer;
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
@@ -52,7 +53,7 @@ public class SuperRacingGame extends BasicGame{
 
         if(this.racingCarUser.hasColission()) {
             System.out.println("KOLISSION WAS TUST DU???");
-
+            this.racingCarComputer.end(); //Gamecrasher.exe
         }
     }
 
