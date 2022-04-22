@@ -53,7 +53,7 @@ public class SuperRacingGame extends BasicGame{
 
         if(this.racingCarUser.hasColission()) {
             System.out.println("KOLISSION WAS TUST DU???");
-            this.racingCarComputer.end(); //Gamecrasher.exe
+            //this.racingCarComputer.end(); //Gamecrasher.exe
         }
     }
 

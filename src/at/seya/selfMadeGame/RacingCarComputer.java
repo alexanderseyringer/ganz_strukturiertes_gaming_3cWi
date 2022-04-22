@@ -62,7 +62,7 @@ public class RacingCarComputer implements Actor{
     }
 
     private void setRandomXPosition() {
-        this.x = (new Random()).nextInt(370) + 420;
+        this.x = (new Random()).nextInt(350) + 430;
     }
 
     public void setSpeedFaster() {
