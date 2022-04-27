@@ -1,6 +1,5 @@
 package at.seya.selfMadeGame;
 
-import at.seya.games.objects.Objects;
 import org.newdawn.slick.*;
 
 import java.util.LinkedList;
@@ -53,7 +52,7 @@ public class SuperRacingGame extends BasicGame{
         CollissionObject collissionObject = this.racingCarUser.hasColission();
         if(collissionObject.isHasCollission()) {
 
-            System.out.println("KOLISSION WAS TUST DU???"); // For Debugging
+            //System.out.println("KOLISSION WAS TUST DU???"); // For Debugging
             collissionObject.getRacingCarComputer().end(); //Gamecrasher.exe
         }
     }
@@ -64,6 +63,9 @@ public class SuperRacingGame extends BasicGame{
         ) {
             actor.render(graphics);
         }
+
+        String score = "Points: " + Integer.toString(this.racingCarUser.getUserScore());
+        graphics.drawString(score, 10, 30);
     }
 
     public static void main(String[] argv) {
