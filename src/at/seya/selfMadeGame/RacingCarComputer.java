@@ -30,7 +30,7 @@ public class RacingCarComputer implements Actor{
     @Override
     public void render(Graphics graphics) {
         scaledCar.draw(this.x,this.y);
-        graphics.draw(collisionShape);
+        //graphics.draw(collisionShape);
     }
 
     @Override

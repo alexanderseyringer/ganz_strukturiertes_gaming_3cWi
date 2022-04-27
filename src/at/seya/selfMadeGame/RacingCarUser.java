@@ -31,7 +31,7 @@ public class RacingCarUser implements Actor{
         scaledCar.draw(x,y);
 
         //temporärus
-        graphics.draw(collisionShape);
+        //graphics.draw(collisionShape);
     }
 
 
