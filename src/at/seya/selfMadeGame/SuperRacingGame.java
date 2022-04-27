@@ -50,10 +50,11 @@ public class SuperRacingGame extends BasicGame{
         ) {
             actor.update(gameContainer, delta);
         }
+        CollissionObject collissionObject = this.racingCarUser.hasColission();
+        if(collissionObject.isHasCollission()) {
 
-        if(this.racingCarUser.hasColission()) {
-            System.out.println("KOLISSION WAS TUST DU???");
-            //this.racingCarComputer.end(); //Gamecrasher.exe
+            System.out.println("KOLISSION WAS TUST DU???"); // For Debugging
+            collissionObject.getRacingCarComputer().end(); //Gamecrasher.exe
         }
     }
 

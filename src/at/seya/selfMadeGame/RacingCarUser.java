@@ -60,13 +60,14 @@ public class RacingCarUser implements Actor{
         this.racingCarComputers.add(racingCarComputer);
     }
 
-    public boolean hasColission() {
+    public CollissionObject hasColission() {
         for (RacingCarComputer car: this.racingCarComputers) {
             if(car.getCollisionShape().intersects(this.collisionShape)){
                 this.isCrashed = true;
-                return true;
+                CollissionObject co = new CollissionObject(true, car);
+                return co;
             }
         }
-        return false;
+        return new CollissionObject(false, null);
     }
 }
