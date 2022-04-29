@@ -15,6 +15,9 @@ public class Main extends BasicGame {
 
         Playboard playboards = new Playboard();
         this.actorList.add(playboards);
+
+        Figures figureOne = new Figures();
+        this.actorList.add(figureOne);
     }
 
     @Override
