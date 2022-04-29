@@ -1,4 +1,4 @@
-package at.seya.selfMadeGame;
+package at.seya.superRacingGame;
 
 import org.newdawn.slick.*;
 
@@ -65,7 +65,7 @@ public class SuperRacingGame extends BasicGame{
         }
 
         String score = "Points: " + Integer.toString(this.racingCarUser.getUserScore());
-                graphics.drawString(score, 10, 30);
+        graphics.drawString(score, 10, 30);
 
     }
 

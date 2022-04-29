@@ -1,4 +1,4 @@
-package at.seya.selfMadeGame;
+package at.seya.superRacingGame;
 
 public class CollissionObject {
     private boolean hasCollission = false;

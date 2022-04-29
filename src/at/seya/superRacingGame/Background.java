@@ -1,4 +1,4 @@
-package at.seya.selfMadeGame;
+package at.seya.superRacingGame;
 
 import org.newdawn.slick.*;
 
