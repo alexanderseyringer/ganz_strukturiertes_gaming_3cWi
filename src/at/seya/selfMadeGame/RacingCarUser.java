@@ -29,9 +29,13 @@ public class RacingCarUser implements Actor{
     @Override
     public void render(Graphics graphics) {
         scaledCar.draw(x,y);
-
         //temporärus
         //graphics.draw(collisionShape);
+
+        if(this.isCrashed) {
+            String snarl = "Hehe back to start";
+            graphics.drawString(snarl, 570, 300);
+        }
     }
 
 
