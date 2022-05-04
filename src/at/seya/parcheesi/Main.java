@@ -8,6 +8,7 @@ import java.util.List;
 public class Main extends BasicGame {
     private List<at.seya.parcheesi.Actor> actorList;
     public Main(String title) {super(title);}
+    private int id = 0;
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
@@ -16,8 +17,31 @@ public class Main extends BasicGame {
         Playboard playboards = new Playboard();
         this.actorList.add(playboards);
 
-        Figures figureOne = new Figures(Figures.COLOR.red, 1);
-        this.actorList.add(figureOne);
+        while (id < 16) {
+            if (id < 4) {
+                Figures redFigure = new Figures(Figures.COLOR.red, this.id);
+                this.actorList.add(redFigure);
+                this.id++;
+            }
+
+            if (id < 8) {
+                Figures blackFigure = new Figures(Figures.COLOR.black, this.id);
+                this.actorList.add(blackFigure);
+                this.id++;
+            }
+
+            if (id < 12) {
+                Figures greenFigure = new Figures(Figures.COLOR.green, this.id);
+                this.actorList.add(greenFigure);
+                this.id++;
+            }
+
+            if (id < 16) {
+                Figures yellowFigure = new Figures(Figures.COLOR.yellow, this.id);
+                this.actorList.add(yellowFigure);
+                this.id++;
+            }
+        }
     }
 
     @Override

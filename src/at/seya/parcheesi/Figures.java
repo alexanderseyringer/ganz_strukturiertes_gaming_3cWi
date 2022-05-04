@@ -27,19 +27,7 @@ public class Figures implements Actor{
         graphics.setColor(Color.black);
         graphics.fillOval(this.x, this.y, this.outerDiameter, this.outerDiameter);
 
-        if(this.color == COLOR.red) {
-            graphics.setColor(Color.red);
-        }
-        else if (this.color == COLOR.black) {
-            graphics.setColor(Color.black);
-        }
-        else if (this.color == COLOR.green)  {
-            graphics.setColor(Color.green);
-        }
-        else {
-            graphics.setColor(Color.yellow);
-        }
-        
+        graphics.setColor(FigureColor.getFigureColor(color));
         graphics.fillOval(this.x+(this.outerDiameter-this.innerDiameter)/2, this.y+(this.outerDiameter-this.innerDiameter)/2, this.innerDiameter, this.innerDiameter);
 
     }
