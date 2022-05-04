@@ -16,7 +16,7 @@ public class Main extends BasicGame {
         Playboard playboards = new Playboard();
         this.actorList.add(playboards);
 
-        Figures figureOne = new Figures();
+        Figures figureOne = new Figures(Figures.COLOR.red, 1);
         this.actorList.add(figureOne);
     }
 
