@@ -17,28 +17,28 @@ public class Main extends BasicGame {
         Playboard playboards = new Playboard();
         this.actorList.add(playboards);
 
-        while (id < 16) {
-            if (id < 4) {
-                Figures redFigure = new Figures(Figures.COLOR.red, this.id);
-                this.actorList.add(redFigure);
+        while (this.id < 16) {
+            if (this.id < 4) {
+                Figures yellowFigure = new Figures(Figures.COLOR.yellow, this.id);
+                this.actorList.add(yellowFigure);
                 this.id++;
             }
 
-            if (id < 8) {
-                Figures blackFigure = new Figures(Figures.COLOR.black, this.id);
-                this.actorList.add(blackFigure);
-                this.id++;
-            }
-
-            if (id < 12) {
+            else if (3 < this.id && this.id < 8) {
                 Figures greenFigure = new Figures(Figures.COLOR.green, this.id);
                 this.actorList.add(greenFigure);
                 this.id++;
             }
 
-            if (id < 16) {
-                Figures yellowFigure = new Figures(Figures.COLOR.yellow, this.id);
-                this.actorList.add(yellowFigure);
+            if (7 < this.id && this.id < 12) {
+                Figures grayFigure = new Figures(Figures.COLOR.gray, this.id);
+                this.actorList.add(grayFigure);
+                this.id++;
+            }
+
+            if (11 < this.id && this.id < 16) {
+                Figures redFigure = new Figures(Figures.COLOR.red, this.id);
+                this.actorList.add(redFigure);
                 this.id++;
             }
         }

@@ -5,13 +5,13 @@ public class FigureColor {
     public static Color getFigureColor(Figures.COLOR color) {
         switch (color) {
             case red:
-                return new Color(Color.red);
-            case black:
-                return new Color(Color.black);
-            case green:
-                return new Color(Color.green);
+                return new Color(255, 50, 50);
+            case gray:
+                return new Color(47, 79, 79);
             case yellow:
-                return new Color(Color.yellow);
+                return new Color(255, 255, 82);
+            case green:
+                return new Color(0, 180,0);
         }
         return new Color(Color.cyan);
     }

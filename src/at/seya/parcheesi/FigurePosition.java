@@ -1,179 +1,74 @@
 package at.seya.parcheesi;
 
 public class FigurePosition {
-    public int getFigureXPosition(int id) {
-        
-        PositionPoint positionMaster = new PositionPoint();
-        if (id == 0) {
-            return positionMaster.setX();
+    public PositionPoint getPositionPoint(int Id) {
+        PositionPoint point = new PositionPoint();
+
+        if (Id == 0) {
+            point.setX(61);
+            point.setY(61);
         }
-
-        if (id == 1) {
-            int x = 779;
-            return x;
+        else if (Id == 1){
+            point.setX(147);
+            point.setY(61);
         }
-
-        if (id == 2) {
-            int x = 779;
-            return x;
+        else if (Id == 2){
+            point.setX(61);
+            point.setY(142);
         }
-
-        if (id == 3) {
-            int x = 779;
-            return x;
+        else if (Id == 3){
+            point.setX(147);
+            point.setY(142);
         }
-
-        if (id == 4) {
-            int x = 779;
-            return x;
+        else if (Id == 4){
+            point.setX(787);
+            point.setY(61);
         }
-
-        if (id == 5) {
-            int x = 779;
-            return x;
+        else if (Id == 5){
+            point.setX(868);
+            point.setY(61);
         }
-
-        if (id == 6) {
-            int x = 779;
-            return x;
+        else if (Id == 6){
+            point.setX(787);
+            point.setY(142);
         }
-
-        if (id == 7) {
-            int x = 779;
-            return x;
+        else if (Id == 7){
+            point.setX(868);
+            point.setY(142);
         }
-
-        if (id == 8) {
-            int x = 779;
-            return x;
+        else if (Id == 8){
+            point.setX(61);
+            point.setY(780);
         }
-
-
-        if (id == 9) {
-            int x = 779;
-            return x;
+        else if (Id == 9){
+            point.setX(142);
+            point.setY(780);
         }
-
-
-        if (id == 10) {
-            int x = 779;
-            return x;
+        else if (Id == 10){
+            point.setX(61);
+            point.setY(868);
         }
-
-        if (id == 11) {
-            int x = 779;
-            return x;
+        else if (Id == 11){
+            point.setX(142);
+            point.setY(868);
         }
-
-        if (id == 12) {
-            int x = 779;
-            return x;
+        else if (Id == 12){
+            point.setX(786);
+            point.setY(779);
         }
-
-        if (id == 13) {
-            int x = 779;
-            return x;
+        else if (Id == 13){
+            point.setX(868);
+            point.setY(779);
         }
-
-        if (id == 14) {
-            int x = 779;
-            return x;
+        else if (Id == 14){
+            point.setX(786);
+            point.setY(860);
         }
-
-        if (id == 15) {
-            int x = 779;
-            return x;
+        else if (Id == 15){
+            point.setX(860);
+            point.setY(858);
         }
-
-        return 33;
-
-    }
-    }
-
-    public int getFigureYPosition(int id) {
-        if (id == 0) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 1) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 2) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 3) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 4) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 5) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 6) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 7) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 8) {
-            int y = 779;
-            return y;
-        }
-
-
-        if (id == 9) {
-            int y = 779;
-            return y;
-        }
-
-
-        if (id == 10) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 11) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 12) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 13) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 14) {
-            int y = 779;
-            return y;
-        }
-
-        if (id == 15) {
-            int y = 779;
-            return y;
-        }
-
-        return 33;
+        return point;
 
     }
 }
