@@ -2,6 +2,7 @@ package at.seya.parcheesi;
 
 import org.newdawn.slick.*;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,10 +10,12 @@ public class Main extends BasicGame {
     private List<at.seya.parcheesi.Actor> actorList;
     public Main(String title) {super(title);}
     private int id = 0;
+    private List<Figures> figuresList;
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.actorList = new LinkedList<>();
+        this.figuresList = new ArrayList<>();
 
         Playboard playboards = new Playboard();
         this.actorList.add(playboards);

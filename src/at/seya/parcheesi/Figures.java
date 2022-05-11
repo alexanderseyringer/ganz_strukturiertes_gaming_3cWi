@@ -4,14 +4,17 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Color;
 
-import java.util.Optional;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Figures implements Actor{
     private float outerDiameter, innerDiameter;
     public enum COLOR {red, yellow, green, gray};
     private COLOR color;
     private int figureID;
-    private int playerViewID;
+    private int movingFigureID;
+    private String movingFigureColor;
+    private int diceValue;
 
     public Figures(COLOR color, int figureID) {
         this.color = color;
