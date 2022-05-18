@@ -19,7 +19,7 @@ import org.newdawn.slick.util.Log;
  * @author kevin
  */
 public class TestBox extends BasicGame {
-	/** The games that have been added */
+	/** The testgames that have been added */
 	private ArrayList games = new ArrayList();
 	/** The current game */
 	private BasicGame currentGame;

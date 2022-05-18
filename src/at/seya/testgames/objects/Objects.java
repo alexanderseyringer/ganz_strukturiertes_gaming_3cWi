@@ -1,4 +1,4 @@
-package at.seya.games.objects;
+package at.seya.testgames.objects;
 
 import org.newdawn.slick.*;
 
